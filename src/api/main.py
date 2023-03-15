@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from src.api.pl_sa.views import router as pl_sa_router
+
+app = FastAPI(title="My API")
+app.include_router(pl_sa_router)
 
 
 @app.get("/")
-def read_root() -> dict[str, str]:
+async def read_root() -> dict[str, str]:
     return {"Hello": "World"}
