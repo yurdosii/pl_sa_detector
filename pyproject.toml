@@ -10,6 +10,7 @@ packages = [{include = "pl_sa_detector", from = "src"}]
 python = "^3.11"
 fastapi = "^0.94.1"
 uvicorn = {extras = ["standard"], version = "^0.21.0"}
+scikit-learn = "^1.2.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
@@ -62,6 +63,13 @@ plugins = [
 module = "src.api.*"
 disallow_any_decorated = false
 disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+module = [
+  "sklearn.*"
+]
+ignore_missing_imports = true
+
 
 [build-system]
 requires = ["poetry-core"]

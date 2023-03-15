@@ -2,11 +2,11 @@ from enum import Enum
 
 
 class PoliticalLeaningEnum(Enum):
-    pro_ukrainian = "Pro-Ukrainian"
     pro_russian = "Pro-Russian"
+    pro_ukrainian = "Pro-Ukrainian"
 
 
 class SentimentEnum(Enum):
-    positive = "Positive"
     negative = "Negative"
     neutral = "Neutral"
+    positive = "Positive"
