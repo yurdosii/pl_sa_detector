@@ -25,3 +25,5 @@ repos:
       - id: mypy
         exclude: ^tests/
         language_version: python3.11
+        additional_dependencies:
+        - "pydantic>=1.10.6"
