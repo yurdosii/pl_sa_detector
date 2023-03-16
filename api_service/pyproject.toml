@@ -2,9 +2,9 @@
 name = "api-service"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Yurii Kosiv <yurdosii.ksv@gmail.com>"]
 readme = "README.md"
-packages = [{include = "api_service", from = "src"}]
+packages = [{include = "api_service"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
