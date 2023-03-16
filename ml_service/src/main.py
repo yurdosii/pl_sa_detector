@@ -3,10 +3,9 @@ from typing import AsyncGenerator
 
 from fastapi import FastAPI
 
-from src.api.ml.shortcuts import load_ml_model
-from src.api.ml.views import router as ml_router
-from src.api.pl_sa.views import router as pl_sa_router
-from src.pl_sa_detector import settings
+from .api.shortcuts import load_ml_model
+from .api.views import router as ml_router
+from .ml_service import settings
 
 
 @asynccontextmanager
@@ -27,10 +26,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
 
 app = FastAPI(title="My API", lifespan=lifespan)
-app.include_router(pl_sa_router)
 app.include_router(ml_router)
 
 
 @app.get("/")
 async def read_root() -> dict[str, str]:
-    return {"Hello": "World"}
+    return {"Hello": "ML World"}

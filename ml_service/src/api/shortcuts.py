@@ -3,9 +3,9 @@ from typing import cast
 
 from sklearn.feature_extraction.text import BaseEstimator
 
-from src.pl_sa_detector import settings
+from src.ml_service import settings
 
-ML_PATH_PREFIX = "data/ml_models/"
+ML_PATH_PREFIX: str = "data/ml_models/"
 
 
 def load_ml_model(model_name: str) -> tuple[BaseEstimator, BaseEstimator]:
