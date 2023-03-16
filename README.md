@@ -4,7 +4,7 @@ An API to detect political leaning (pro-ukrainian or pro-russian) and sentiment 
 ---
 
 ## Known issues
-### scipy installatio
+### scipy installation
 Problem description:
 ```
 ERROR: Dependency "OpenBLAS" not found, tried pkgconfig and framework
