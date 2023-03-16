@@ -8,4 +8,4 @@ app.include_router(pl_sa_router)
 
 @app.get("/")
 async def read_root() -> dict[str, str]:
-    return {"Hello": "World"}
+    return {"Hello": "API World"}

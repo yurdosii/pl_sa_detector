@@ -63,7 +63,6 @@ module = "src.api.*"
 disallow_any_decorated = false
 disallow_untyped_decorators = false
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
