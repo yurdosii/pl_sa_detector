@@ -43,7 +43,7 @@ Steps:
 - open `pl_sa_detector` folder
 - click on the green icon (Dev Containers [link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)) -> "Reopen in Container" -> "from `docker-compose.yml`"
 - (optional) It could be necessary to do this couple of times
-- open `/code` folder
+- open `/code` folder (created on docker container by `Dockerfile` and `docker-compose.yml`)
 - (optional) It could be necessary to install Python extension (there will be a pop-up)
 - click "Start Debugging" / F5  in the "Run and Debug" section of VS Code
 
