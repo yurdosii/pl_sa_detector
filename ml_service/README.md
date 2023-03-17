@@ -37,8 +37,7 @@ docker run -p 8000:8000 -it --rm pl_sa_detector_ml_service
 ---
 
 ### To debug in VS Code in docker container
-note: same as in "To debug in VS Code locally" `.vscode/launch.json` is used
-here, but on the last step I've updated the port to be 8005
+note: same as in "To debug in VS Code locally" `.vscode/launch.json` is used here, but on the last step I've updated the port to be 8005
 
 Steps:
 - open `pl_sa_detector` folder
