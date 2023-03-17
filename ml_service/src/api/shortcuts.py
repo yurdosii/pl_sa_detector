@@ -3,7 +3,8 @@ from typing import cast
 
 from sklearn.feature_extraction.text import BaseEstimator
 
-from src.ml_service import settings
+from ..ml_service import settings
+from .enums import PoliticalLeaningEnum, SentimentEnum
 
 ML_PATH_PREFIX: str = "data/ml_models/"
 
@@ -14,36 +15,48 @@ def load_ml_model(model_name: str) -> tuple[BaseEstimator, BaseEstimator]:
         return model, vectorizer
 
 
-def predict_message_info(message: str) -> dict[str, int]:
+def predict_message_info(message: str) -> dict[str, str]:
     return {
-        "political_leaning": predict_message_political_leaning(message),
-        "sentiment": predict_message_sentiment(message),
+        "political_leaning": _predict_message_political_leaning(message),
+        "sentiment": _predict_message_sentiment(message),
     }
 
 
-def predict_message_political_leaning(message: str) -> int:
+def predict_message_political_leaning(message: str) -> dict[str, str]:
     """
     0: Pro-Russian
     1: Pro-Ukrainian
     """
-    return _predict(
+    result = _predict_message_political_leaning(message)
+    return {"political_leaning": result}
+
+
+def _predict_message_political_leaning(message: str) -> str:
+    value = _predict(
         model=settings.ML_MODELS["PL_model"],
         vect=settings.ML_MODELS["PL_vect"],
         message=message,
     )
+    return PoliticalLeaningEnum(value).name
 
 
-def predict_message_sentiment(message: str) -> int:
+def predict_message_sentiment(message: str) -> dict[str, str]:
     """
     0: Negative
     1: Neutral
     2: Positive
     """
-    return _predict(
+    result = _predict_message_sentiment(message)
+    return {"sentiment": result}
+
+
+def _predict_message_sentiment(message: str) -> str:
+    value = _predict(
         model=settings.ML_MODELS["SA_model"],
         vect=settings.ML_MODELS["SA_vect"],
         message=message,
     )
+    return SentimentEnum(value).name
 
 
 def _predict(

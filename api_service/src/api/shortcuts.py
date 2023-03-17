@@ -1,17 +1,13 @@
-from .enums import PoliticalLeaningEnum, SentimentEnum
-from .schemas import Info
+from .service import call_ml_service
 
 
-def get_message_info(message: str) -> Info:
-    return Info(
-        political_leaning=get_message_political_leaning(message),
-        sentiment=get_message_sentiment(message),
-    )
+def get_message_info(message: str) -> dict[str, str]:
+    return call_ml_service("/ml/predict", message)
 
 
-def get_message_political_leaning(message: str) -> PoliticalLeaningEnum:
-    return PoliticalLeaningEnum.pro_ukrainian
+def get_message_political_leaning(message: str) -> dict[str, str]:
+    return call_ml_service("/ml/predict_pl", message)
 
 
-def get_message_sentiment(message: str) -> SentimentEnum:
-    return SentimentEnum.neutral
+def get_message_sentiment(message: str) -> dict[str, str]:
+    return call_ml_service("/ml/predict_sa", message)

@@ -9,16 +9,16 @@ from .shortcuts import (
 router = APIRouter(prefix="/ml", tags=["Machine Learning"])
 
 
-@router.post("/predict")
-async def predict_info(message: str) -> dict[str, int]:
+@router.get("/predict")
+async def predict_info(message: str) -> dict[str, str]:
     return predict_message_info(message)
 
 
-@router.post("/predict_pl")
-async def predict_political_leaning(message: str) -> int:
+@router.get("/predict_pl")
+async def predict_political_leaning(message: str) -> dict[str, str]:
     return predict_message_political_leaning(message)
 
 
-@router.post("/predict_sa")
-async def predict_sentiment(message: str) -> int:
+@router.get("/predict_sa")
+async def predict_sentiment(message: str) -> dict[str, str]:
     return predict_message_sentiment(message)
