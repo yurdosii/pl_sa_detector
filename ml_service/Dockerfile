@@ -7,14 +7,13 @@ ENV PYTHONUNBUFFERED=true
 # Set the working directory in the container
 WORKDIR /code
 
-# Copy the project files into the container
-COPY . /code
+# Copy poetry files
+COPY pyproject.toml poetry.lock /code/
 
 # Install poetry and project dependencies
-RUN pip install poetry && poetry install --no-root --without dev
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-interaction --no-root --without dev
 
-# Expose the port number that the application will listen on
-EXPOSE 8000
-
-# Start the server with uvicorn
-CMD ["poetry", "run", "uvicorn", "src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+# Copy the project files into the container
+COPY . /code
