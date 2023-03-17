@@ -17,3 +17,9 @@ RUN pip install poetry && \
 
 # Copy the project files into the container
 COPY . /code
+
+# Expose the port number that the application will listen on
+EXPOSE 8000
+
+# Start the server with uvicorn
+CMD ["poetry", "run", "uvicorn", "src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]

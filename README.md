@@ -1,5 +1,19 @@
 # pl_sa_detector
-An API to detect political leaning (pro-ukrainian or pro-russian) and sentiment (positive, neutral, negative) of the text message
+An API to detect political leaning (Pro-Ukrainian or Pro-Russian) and sentiment (Positive, Neutral, Negative) of the text message
+
+---
+## Running
+### To run using docker-compose:
+```
+docker-compose build
+docker-compose up
+```
+### To use `breakpoint()`
+```
+docker-compose build
+docker-compose up
+docker-compose run -p 8000:8000 --rm compose_ml_service
+```
 
 ---
 
