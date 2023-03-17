@@ -41,8 +41,7 @@ note: same as in "To debug in VS Code locally" `.vscode/launch.json` is used her
 
 Steps:
 - open `pl_sa_detector` folder
-- click on the green icon (Dev Containers [link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)) -> "Reopen in Container"
--> "from `docker-compose.yml`"
+- click on the green icon (Dev Containers [link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)) -> "Reopen in Container" -> "from `docker-compose.yml`"
 - (optional) It could be necessary to do this couple of times
 - open `/code` folder
 - (optional) It could be necessary to install Python extension (there will be a pop-up)
