@@ -47,4 +47,4 @@ Steps:
 - (optional) It could be necessary to install Python extension (there will be a pop-up)
 - click "Start Debugging" / F5  in the "Run and Debug" section of VS Code
 
-So we ran one docker container (8002 port (docker-compose)) with the server (FastAPI app). Then we connected to that docker container and ran another server (8005 port) that we can debug now (set breakpoints in VS Code)
+So we ran one docker container (8002 port (docker-compose)) with the server (FastAPI app). Then we connected to that docker container and ran another server on it (8005 port) that we can debug now (set breakpoints in VS Code)
