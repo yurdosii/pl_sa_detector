@@ -23,7 +23,7 @@ repos:
     rev: v1.1.1
     hooks:
       - id: mypy
-        exclude: ^tests/
+        exclude: ^tests/|test_dummy.py
         language_version: python3.11
         additional_dependencies:
         - "pydantic>=1.10.6"
