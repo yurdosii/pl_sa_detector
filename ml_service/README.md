@@ -20,6 +20,7 @@ tox
 or
 ```
 make lint
+pytest
 ```
 
 ---
