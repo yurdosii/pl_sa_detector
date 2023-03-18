@@ -18,6 +18,9 @@ As a result, the prediction of the text's political leaning involved Logistic Re
 docker-compose build
 docker-compose up
 ```
+
+After this go to `http://127.0.0.1:8001/docs/` and `http://127.0.0.1:8002/docs/`.
+
 ### To use `breakpoint()`
 ```
 docker-compose build
