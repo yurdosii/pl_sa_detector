@@ -1,6 +1,8 @@
 # pl_sa_detector
 An API to detect political leaning (Pro-Ukrainian or Pro-Russian) and sentiment (Positive, Neutral, Negative) of the text message
 
+Note: more info can be found on `api_service` and `ml_service` `README.md` files
+
 ---
 ## Running
 ### To run using docker-compose:

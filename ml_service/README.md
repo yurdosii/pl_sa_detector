@@ -12,6 +12,17 @@ docker build -t pl_sa_detector_ml_service .
 docker run -p 8000:8000 pl_sa_detector_ml_service
 ```
 
+## Development
+### Run linters and tests:
+```
+tox
+```
+or
+```
+make lint
+pytest
+```
+
 ---
 ## Debugging
 
