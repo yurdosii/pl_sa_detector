@@ -89,7 +89,7 @@ Solution:
 - try to remove `.tox`
 - try to enable Python 3.10 via `pyenv`
 ```
-poetry run tox  # may be skipping here
+poetry run tox  # may skip here
 pyenv install 3.10
 pyenv versions
 pyenv global 3.10.11
