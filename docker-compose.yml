@@ -12,7 +12,7 @@ services:
       - db
       - compose_ml_service
     environment:
-      STAGE: "docker"
+      STAGE: "docker"  # my custom env variable
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/pl_sa_db_docker"  # db is important
 
   compose_ml_service:
