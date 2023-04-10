@@ -7,6 +7,9 @@ ENV PYTHONUNBUFFERED=true
 # Set the working directory in the container
 WORKDIR /code
 
+# Update
+RUN apt-get update && apt-get -y install libpq-dev gcc
+
 # Copy poetry files
 COPY pyproject.toml poetry.lock /code/
 

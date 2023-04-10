@@ -9,7 +9,11 @@ services:
     ports:
       - 8001:8000
     depends_on:
+      - db
       - compose_ml_service
+    environment:
+      STAGE: "docker"  # my custom env variable
+      DATABASE_URL: "postgresql://postgres:postgres@db:5432/pl_sa_db_docker"  #! 'db:5432' ('db' = container name)
 
   compose_ml_service:
     build: ./ml_service
@@ -18,3 +22,16 @@ services:
       - ./ml_service/:/code/
     ports:
       - 8002:8000
+
+  db:
+    image: postgres:14
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pl_sa_db_docker
+    restart: "always"
+    ports:
+      - "5433:5432"

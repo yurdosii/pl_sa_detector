@@ -1,8 +1,10 @@
 import os
-
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+STAGE = os.environ.get("STAGE", "dev")
+
+if STAGE == "dev":
+    load_dotenv(".env")
 
 
 SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "")
