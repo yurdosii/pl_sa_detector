@@ -19,6 +19,11 @@ docker-compose build
 docker-compose up
 ```
 
+### To apply migrations:
+```
+docker-compose exec compose_api_service alembic upgrade head
+```
+
 After this go to `http://127.0.0.1:8001/docs/` and `http://127.0.0.1:8002/docs/`.
 
 ---
@@ -78,7 +83,7 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"
 ```
 ### tox skips Python 3.10
 Description:
-- for some reason `tox` may skipp Python 3.10
+- for some reason `tox` may skip Python 3.10
 
 Solution:
 - try to remove `.tox`
@@ -138,3 +143,15 @@ Steps:
 - click "Start Debugging" / F5  in the "Run and Debug" section of VS Code
 
 So we ran one docker container (8002 port (docker-compose)) with the server (FastAPI app). Then we connected to that docker container and ran another server on it (8005 port) that we can debug now (set breakpoints in VS Code)
+
+
+---
+## Misc
+### Troubleshooting
+- remove docker images / containers
+- remove `data/postgres` folder
+- run `docker-compose up` several times (helps with "Is the server running on host "db" (172.27.0.3) and accepting")
+
+### Connect pgAdmin4 to DB in Docker container
+- just use configs from `docker-compose.yml` (port is `5433` (!))
+- as a debug could be helpful to stop local PostgreSQL by `brew services stop postgresql@14`
