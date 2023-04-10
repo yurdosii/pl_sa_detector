@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 
-from .api.views import router as pl_sa_router
+from .api.messages_views import router as messages_router
+from .api.users_views import router as users_router
 
 app = FastAPI(title="My API")
-app.include_router(pl_sa_router)
+app.include_router(messages_router)
+app.include_router(users_router)
 
 
 @app.get("/")
