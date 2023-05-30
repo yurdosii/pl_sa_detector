@@ -7,7 +7,9 @@ if STAGE == "dev":
     load_dotenv(".env")
 
 
-SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL", "")
+SQLALCHEMY_DATABASE_URL = os.environ.get(
+    "DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/pl_sa_db"
+)
 
 ML_SERVICE_URL = os.environ.get(
     "ML_SERVICE_URL",

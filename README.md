@@ -12,8 +12,8 @@ They were implemented as part of the master diploma research where machine learn
 As a result, the prediction of the text's political leaning involved Logistic Regression with TF-IDF vectorization, whereas, for sentiment analysis, LinearSVC and TF-IDF vectorization were used. More info can be found in this [repository](https://github.com/yurdosii/pl_sa_diploma).
 
 ---
-## Running
-### To run using docker-compose:
+## Running (docker-compose)
+### To run:
 ```
 docker-compose build
 docker-compose up
@@ -24,7 +24,35 @@ docker-compose up
 docker-compose exec compose_api_service alembic upgrade head
 ```
 
+### To check DB in pgAdmin 4:
+- connect to "localhost:5433" server in pgAdmin 4 (`5433` port is specified in `docker-compose.yml`)
+
+
 After this go to `http://127.0.0.1:8001/docs/` and `http://127.0.0.1:8002/docs/`.
+
+---
+## Running (locally)
+### To go to a particular service:
+```
+cd api_service  # or 'cd ml_service'
+```
+
+### To setup DB:
+- note: it may be necessary to create `"pl_sa_db"` db manually in pgAdmin 4 (server: "localhost:5432")
+- apply migrations:
+```
+alembic upgrade head
+```
+
+### To run:
+```
+poetry run uvicorn src.main:app --reload
+```
+
+### To check DB in pgAdmin 4:
+- connect to "localhost:5432" server in pgAdmin 4
+
+After this go to `http://127.0.0.1:8000/docs/`.
 
 ---
 ## Running a particular service
